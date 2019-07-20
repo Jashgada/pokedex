@@ -10,4 +10,11 @@ request.onload = function()
     console.log(data.types[0].type.name);
 }
 request.send();
+window.open("pokedex-page.html");
+dispStats(data)
+}
+
+function dispStats(pokeObject)
+{
+
 }
