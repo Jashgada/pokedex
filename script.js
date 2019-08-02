@@ -15,9 +15,8 @@ request.onload = function()
 }
 }
 
-function dispStats(pokeObject)
- {   //document.getElementById("stat-para").innerHTML = "Type: " + x.valu;
- window.location.href = "pokedex-page.html";    
- document.getElementById("stat-para").innerHTML = "Type: "; 
+function dispStats(data)
+ {   //document.getElementById("stat-para").innerHTML = "Type: " + x.valu;    
+ document.getElementById("poke-stat").innerHTML = "Type: " + data.types[0].type.name; 
     
 }
