@@ -9,14 +9,24 @@ request.send();
 request.onload = function()
 {
     var data = JSON.parse(this.response);
-    dispStats(data);
+    main(data);
     console.log(data.types[0].type.name);
-    pokedata = data;
 }
 }
 
-function dispStats(data)
- {   //document.getElementById("stat-para").innerHTML = "Type: " + x.valu;    
- document.getElementById("poke-stat").innerHTML = "Type: " + data.types[0].type.name; 
-    
+function main(pokeAPI)  // pokeAPI contains raw data from the api
+ {   //document.getElementById("stat-para").innerHTML = "Type: " + x.valu;  
+    dispStats(pokeAPI);
+}
+
+function dispStats(pokeAPI)
+{
+    var id = pokeAPI.id;
+    var speed = pokeAPI.stats[0].base_stat;
+    var defense = pokeAPI.stats[3].base_stat;
+    var attack = pokeAPI.stats[4].base_stat;
+    var hp = pokeAPI.stats[5].base_stat;
+    document.getElementById("poke-stat").innerHTML = "Speed: " + speed + "\n" + "Defense: " + defense + "\n" + "Attack: " + attack + "\n" + "HP: " + hp + "\n";  
+ document.getElementById("poke-stat").style.color = "Blue";
+
 }
