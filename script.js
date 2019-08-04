@@ -17,6 +17,8 @@ request.onload = function()
 function main(pokeAPI)  // pokeAPI contains raw data from the api
  {   //document.getElementById("stat-para").innerHTML = "Type: " + x.valu;  
     dispStats(pokeAPI);
+    var id = pokeAPI.id;
+    pokeImage(id);
 }
 
 function dispStats(pokeAPI)
@@ -28,5 +30,19 @@ function dispStats(pokeAPI)
     var hp = pokeAPI.stats[5].base_stat;
     document.getElementById("poke-stat").innerHTML = "Speed: " + speed + "\n" + "Defense: " + defense + "\n" + "Attack: " + attack + "\n" + "HP: " + hp + "\n";  
  document.getElementById("poke-stat").style.color = "Blue";
+
+}
+
+
+function pokeImage(pokeID)
+{   var elem = document.getElementById("pokeImg");
+    if(elem.firstChild)
+    {  
+        elem.innerHTML = "";
+    }
+    var img = document.createElement("img");
+    img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokeID +".png";
+
+    elem.appendChild(img);
 
 }
